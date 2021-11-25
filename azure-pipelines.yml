@@ -4,11 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
-- main
+- master
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '30565dcc-c2b9-41c3-a5f5-908fa473e939'
+  azureServiceConnectionId: '<youridhere>'
 
   # Web app name
   webAppName: 'flask-ml-service'
@@ -80,7 +80,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : '
+            displayName: 'Deploy Azure Web App : flask-ml-service'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
